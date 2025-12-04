@@ -2,7 +2,6 @@ package com.example.machineround
 
 import android.annotation.SuppressLint
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,7 +26,6 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
-import kotlin.math.log
 
 
 //model classes
@@ -158,7 +156,7 @@ class ListViewModel : ViewModel() {
     }
 }
 
-class MainActivity : ComponentActivity() {
+class Task1Activity : ComponentActivity() {
 
     private lateinit var contactViewModel: ListViewModel
     private lateinit var adapter: ContactsAdapter
@@ -169,7 +167,7 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_task1)
         progressbar = findViewById<ProgressBar>(R.id.progressbar)
         initRecyclerView()
         contactViewModel = ViewModelProvider(this)[ListViewModel::class.java]
