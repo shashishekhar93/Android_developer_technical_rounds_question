@@ -29,12 +29,26 @@
             android:exported="true"
             android:label="Task 2"
             android:theme="@style/Theme.MachineRound">
+            <!--<intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>-->
+        </activity>
+
+        <activity
+            android:name=".T4Activity4"
+            android:exported="true"
+            android:label="Task 3"
+            android:theme="@style/Theme.MachineRound">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
 
 
     </application>

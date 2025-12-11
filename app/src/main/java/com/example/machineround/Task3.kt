@@ -27,23 +27,21 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-
-//model classes
-data class RandomUserResponse(val results: List<ContactDto>, val info: InfoObj)
-data class InfoObj(val seed: String, val results: Int, val page: Int, val version: String)
-data class ContactDto(val name: NameDto, val phone: String, val picture: PictureDto)
-data class NameDto(val title: String, val first: String, val last: String)
-data class PictureDto(val large: String, val medium: String, val thumbnail: String)
+data class T3UserResponse(val results: List<T3ContactDto>, val info: T3InfoObj)
+data class T3InfoObj(val seed: String, val results: Int, val page: Int, val version: String)
+data class T3ContactDto(val name: T3NameDto, val phone: String, val picture: T3PictureDto)
+data class T3NameDto(val title: String, val first: String, val last: String)
+data class T3PictureDto(val large: String, val medium: String, val thumbnail: String)
 
 //remote interface
-interface RandomUserApi {
+interface T3UserApi {
     @GET("api/")
     suspend fun getContacts(
         @Query("page") page: Int = 1,
-        @Query("results") results: Int = 20,
+        @Query("results") results: Int = 1000,
         @Query("inc") inc: String = "name,phone,picture",
         @Query("nat") nat: String = "us,gb,ca,au",
-    ): RandomUserResponse
+    ): T3UserResponse
 }
 
 //retrofit instance
@@ -53,35 +51,36 @@ private fun createOkHttpClient(): OkHttpClient {
     val logging = HttpLoggingInterceptor().apply {
         level = HttpLoggingInterceptor.Level.BODY   // BASIC / HEADERS / BODY / NONE
     }
+
     return OkHttpClient.Builder()
         .addInterceptor(logging)
         .build()
 }
 
-val retrofit: Retrofit = Retrofit.Builder()
+val T3retrofit: Retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .client(createOkHttpClient())
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-val api: RandomUserApi = retrofit.create(RandomUserApi::class.java)
+val T3api: T3UserApi = T3retrofit.create(T3UserApi::class.java)
 
 //recyclerview
-class ContactsAdapter(private var items: List<ContactDto>) :
-    RecyclerView.Adapter<ContactsRvViewHolder>() {
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ContactsRvViewHolder {
+class T3ContactsAdapter(private var items: List<T3ContactDto>) :
+    RecyclerView.Adapter<T3ContactsRvViewHolder>() {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): T3ContactsRvViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_contact, parent, false)
-        return ContactsRvViewHolder(view)
+        return T3ContactsRvViewHolder(view)
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onBindViewHolder(holder: ContactsRvViewHolder, position: Int) {
-        val contact = items[position]
+    override fun onBindViewHolder(holder: T3ContactsRvViewHolder, position: Int) {
+        val T3contact = items[position]
         holder.tvName.text =
-            contact.name.title + ". " + contact.name.first + " " + contact.name.last
+            T3contact.name.title + ". " + T3contact.name.first + " " + T3contact.name.last
 
-        holder.tvPhone.text = contact.phone
-        Glide.with(holder.itemView).load(contact.picture.medium)
+        holder.tvPhone.text = T3contact.phone
+        Glide.with(holder.itemView).load(T3contact.picture.medium)
             .into(holder.ivPic)
     }
 
@@ -90,96 +89,94 @@ class ContactsAdapter(private var items: List<ContactDto>) :
     }
 
     @SuppressLint("NotifyDataSetChanged")
-    fun submitList(newItems: List<ContactDto>) {
+    fun t3submitList(newItems: List<T3ContactDto>) {
         items = newItems
         notifyDataSetChanged()
     }
 }
 
-//viewholder for recyclerview.
-class ContactsRvViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+//view holder for recyclerview.
+class T3ContactsRvViewHolder(view: View) : RecyclerView.ViewHolder(view) {
     val ivPic: ImageView = view.findViewById(R.id.ivAvatar)
     val tvName: TextView = view.findViewById(R.id.tvName)
     val tvPhone: TextView = view.findViewById(R.id.tvPhone)
 }
 
+//viewmodel for MVVM.
+class T3ListViewModel : ViewModel() {
 
-class ListViewModel : ViewModel() {
+    private val _t3contacts = MutableLiveData<List<T3ContactDto>>()
+    val t3contacts: LiveData<List<T3ContactDto>> get() = _t3contacts
 
-    private val _contacts = MutableLiveData<List<ContactDto>>()
-    val contacts: LiveData<List<ContactDto>> get() = _contacts
+    private val _t3isLoading = MutableLiveData<Boolean>()
+    val t3isLoading: LiveData<Boolean> = _t3isLoading
 
-    private val _isLoading = MutableLiveData<Boolean>()
-    val isLoading: LiveData<Boolean> = _isLoading
-
-    private val _isError = MutableLiveData<String?>()
-    val isError: LiveData<String?> = _isError
+    private val _t3isError = MutableLiveData<String?>()
+    val t3isError: LiveData<String?> = _t3isError
 
     private var page = 1
-    var isLastPage = false
+    var t3isLastPage = false
         private set
 
     init {
-        loadMoreContacts()
+        t3loadMoreContacts()
     }
 
-    fun loadMoreContacts() {
-        if (_isLoading.value == true || isLastPage) return
+    fun t3loadMoreContacts() {
+        if (_t3isLoading.value == true || t3isLastPage) return
 
         viewModelScope.launch {
-            _isLoading.value = true
-            _isError.value = null
+            _t3isLoading.value = true
+            _t3isError.value = null
             try {
-                val response = api.getContacts(page)
+                val response = T3api.getContacts(page)
                 val newContacts = response.results
                 if (newContacts.isEmpty()) {
-                    isLastPage = true
+                    t3isLastPage = true
                 } else {
-                    val mappedValue = newContacts.map {
-                        ContactDto(
-                            name = NameDto(it.name.title, it.name.first, it.name.last),
+                    val t3mappedValue = newContacts.map {
+                        T3ContactDto(
+                            name = T3NameDto(it.name.title, it.name.first, it.name.last),
                             phone = it.phone,
                             picture = it.picture
                         )
                     }
-                    val currentContacts = _contacts.value ?: emptyList()
-                    _contacts.value = currentContacts + mappedValue
+                    val t3currentContacts = _t3contacts.value ?: emptyList()
+                    _t3contacts.value = t3currentContacts + t3mappedValue
                     page++
                 }
             } catch (e: Exception) {
-                _isError.value = e.message
+                _t3isError.value = e.message
             } finally {
-                _isLoading.value = false
+                _t3isLoading.value = false
             }
         }
     }
 }
 
-class Task1Activity : ComponentActivity() {
+class T3Activity : ComponentActivity() {
 
-    private lateinit var contactViewModel: ListViewModel
-    private lateinit var adapter: ContactsAdapter
-
-    private var isScrolling = false
-
-    private lateinit var progressbar: ProgressBar
+    private lateinit var t3contactViewModel: T3ListViewModel
+    private lateinit var t3adapter: T3ContactsAdapter
+    private var t3isScrolling = false
+    private lateinit var t3progressbar: ProgressBar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_task1)
-        progressbar = findViewById<ProgressBar>(R.id.progressbar)
+        t3progressbar = findViewById<ProgressBar>(R.id.progressbar)
         initRecyclerView()
-        contactViewModel = ViewModelProvider(this)[ListViewModel::class.java]
+        t3contactViewModel = ViewModelProvider(this)[T3ListViewModel::class.java]
 
-        contactViewModel.contacts.observe(this) { contacts ->
-            adapter.submitList(contacts)
+        t3contactViewModel.t3contacts.observe(this) { contacts ->
+            t3adapter.t3submitList(contacts)
         }
 
-        contactViewModel.isLoading.observe(this) { loading ->
+        t3contactViewModel.t3isLoading.observe(this) { loading ->
             if (loading) showProgressBar() else hideProgressBar()
         }
 
-        contactViewModel.isError.observe(this) { error ->
+        t3contactViewModel.t3isError.observe(this) { error ->
             hideProgressBar()
             error?.let {
                 Toast.makeText(this, "Error: $it", Toast.LENGTH_SHORT).show()
@@ -189,17 +186,17 @@ class Task1Activity : ComponentActivity() {
 
     private fun initRecyclerView() {
         val recyclerview = findViewById<RecyclerView>(R.id.contact_rv)
-        adapter = ContactsAdapter(emptyList())
+        t3adapter = T3ContactsAdapter(emptyList())
         recyclerview.layoutManager = LinearLayoutManager(this)
-        recyclerview.adapter = adapter
-        recyclerview.addOnScrollListener(onScrollListener)
+        recyclerview.adapter = t3adapter
+        //recyclerview.addOnScrollListener(onScrollListener)
     }
 
     private val onScrollListener = object : RecyclerView.OnScrollListener() {
         override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
             super.onScrollStateChanged(recyclerView, newState)
             if (newState == AbsListView.OnScrollListener.SCROLL_STATE_TOUCH_SCROLL) {
-                isScrolling = true
+                t3isScrolling = true
             }
         }
 
@@ -210,23 +207,26 @@ class Task1Activity : ComponentActivity() {
             val visibleItemCount = layoutManager.childCount
             val totalItemCount = layoutManager.itemCount
 
-            val isLoading = contactViewModel.isLoading.value ?: false
-            val isLastPage = contactViewModel.isLastPage
+            val isLoading = t3contactViewModel.t3isLoading.value ?: false
+            val isLastPage = t3contactViewModel.t3isLastPage
 
             val isAtLastItem = firstVisibleItemPosition + visibleItemCount >= totalItemCount
             val isNotAtBeginning = firstVisibleItemPosition >= 0
-            val shouldPaginate = !isLoading && !isLastPage && isAtLastItem && isNotAtBeginning && isScrolling
+            val shouldPaginate =
+                !isLoading && !isLastPage && isAtLastItem && isNotAtBeginning && t3isScrolling
 
             if (shouldPaginate) {
-                contactViewModel.loadMoreContacts()
-                isScrolling = false
+                t3contactViewModel.t3loadMoreContacts()
+                t3isScrolling = false
             }
         }
     }
+
     private fun showProgressBar() {
-        progressbar.visibility = View.VISIBLE
+        t3progressbar.visibility = View.VISIBLE
     }
+
     private fun hideProgressBar() {
-        progressbar.visibility = View.GONE
+        t3progressbar.visibility = View.GONE
     }
 }
