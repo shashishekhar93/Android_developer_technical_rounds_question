@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/guarantor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        android:text="Guarantor"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <!--id-->
+    <TextView
+        android:id="@+id/guarantorID"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/guarantor"
+        android:paddingLeft="24sp"
+        android:text="Guarantor ID"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+    <!--name-->
+
+    <TextView
+        android:id="@+id/guarantorName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/guarantorID"
+        android:paddingLeft="24sp"
+        android:text="guarantor Name"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+<!--    relationship-->
+    <TextView
+        android:id="@+id/relationship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/guarantorName"
+        android:paddingLeft="24sp"
+        android:text="guarantor Relationship"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <!--varified-->
+    <TextView
+        android:id="@+id/dob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relationship"
+        android:paddingLeft="24sp"
+        android:text="guarantor DOB"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+
+    <!--checkstatus-->
+    <TextView
+        android:id="@+id/mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dob"
+        android:paddingLeft="24sp"
+        android:text="guarantor Mobile"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+</RelativeLayout>

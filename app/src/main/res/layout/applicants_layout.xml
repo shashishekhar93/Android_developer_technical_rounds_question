@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/coApplicant"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        android:text="Co-Applicants"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/coApplicantId"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coApplicant"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant ID"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/coApplicantName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coApplicantId"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant Name"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/relationship"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/coApplicantName"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant Relationship"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <!--dob-->
+    <TextView
+        android:id="@+id/dob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relationship"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant DOB"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+
+    <!--mobile-->
+    <TextView
+        android:id="@+id/mobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/dob"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant Mobile"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/occupation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/mobile"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant Occupation"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/monthlyIncome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/occupation"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant Monthly Income"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/kycStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/monthlyIncome"
+        android:paddingLeft="24sp"
+        android:text="Co-Applicant Kyc Status"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+</RelativeLayout>

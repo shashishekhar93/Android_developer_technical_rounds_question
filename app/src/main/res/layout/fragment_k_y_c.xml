@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".machinetask.fragments.KYC">
+
+    <!--adhar-->
+
+    <TextView
+        android:id="@+id/adharNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        android:text="Adhar Number "
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_below="@id/adharNumber"
+        android:id="@+id/adharVerificationStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        android:text="Verification Status"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <LinearLayout
+        android:id="@+id/adharimages"
+        android:layout_below="@id/adharVerificationStatus"
+        android:orientation="horizontal"
+        android:layout_margin="4sp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2">
+
+        <ImageView
+            android:id="@+id/imageFront"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageBack"
+            android:layout_width="0dp"
+            android:layout_height="150dp"
+            android:layout_margin="2dp"
+            android:layout_weight="1" />
+
+
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_below="@id/adharimages"
+        android:id="@+id/panNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        android:text="Adhar Number "
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <TextView
+        android:layout_below="@id/panNumber"
+        android:id="@+id/panverificationStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        android:text="Verification Status"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+    <!--pan-->
+    <ImageView
+        android:layout_below="@id/panverificationStatus"
+        android:id="@+id/panimageFront"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_weight="1" />
+
+</RelativeLayout>

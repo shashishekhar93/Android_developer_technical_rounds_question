@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".machinetask.fragments.LoanSummery">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--"loan": {
+          "loanId": "LNX900234",
+          "product": "Retail Bike Loan",
+          "amountRequested": 87500.00,
+          "amountApproved": null,
+          "interestRate": 15.5,
+          "tenure": 18,
+          "status": "UnderReview",
+          "submittedAt": "2025-02-11 13:14:50",-->
+
+        <TextView
+            android:id="@+id/tvLoanId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="Loan ID"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvProduct"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="Product"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvamountRequested"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="amountRequested"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvamountApproved"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="amountApproved"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvinterestRate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="interestRate"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvtenure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="tenure"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvstatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="status"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvsubmittedAt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8sp"
+            android:text="Submitted"
+            android:textColor="@color/black"
+            android:textSize="12sp" />
+
+
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/coApplicant"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8sp"
+                android:text="Co-Applicants"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/coApplicantId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coApplicant"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant ID"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/coApplicantName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coApplicantId"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant Name"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/coRelationship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coApplicantName"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant Relationship"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <!--dob-->
+            <TextView
+                android:id="@+id/coDob"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coRelationship"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant DOB"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+            <!--mobile-->
+            <TextView
+                android:id="@+id/coMobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coDob"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant Mobile"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/occupation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/coMobile"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant Occupation"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/monthlyIncome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/occupation"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant Monthly Income"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/kycStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/monthlyIncome"
+                android:paddingLeft="24sp"
+                android:text="Co-Applicant Kyc Status"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/guarantor"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8sp"
+                android:text="Guarantor"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!--id-->
+            <TextView
+                android:id="@+id/guarantorID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/guarantor"
+                android:paddingLeft="24sp"
+                android:text="Guarantor ID"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+            <!--name-->
+
+            <TextView
+                android:id="@+id/guarantorName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/guarantorID"
+                android:paddingLeft="24sp"
+                android:text="guarantor Name"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <!--    relationship-->
+            <TextView
+                android:id="@+id/relationship"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/guarantorName"
+                android:paddingLeft="24sp"
+                android:text="guarantor Relationship"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <!--varified-->
+            <TextView
+                android:id="@+id/guaVarified"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relationship"
+                android:paddingLeft="24sp"
+                android:text="Verification Status"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+            <!--checkstatus-->
+            <TextView
+                android:id="@+id/guaStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/guaVarified"
+                android:paddingLeft="24sp"
+                android:text="Check Status"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!--    name -->
+            <TextView
+                android:id="@+id/refContact"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8sp"
+                android:text="Reference Contacts"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!--name-->
+            <TextView
+                android:id="@+id/refName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/refContact"
+                android:paddingLeft="24sp"
+                android:text="Reference Name"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <!--    mobile-->
+            <TextView
+                android:id="@+id/refMobile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/refName"
+                android:paddingLeft="24sp"
+                android:text="Reference Mobile"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+            <!--relation-->
+
+            <TextView
+                android:id="@+id/refRelation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/refMobile"
+                android:paddingLeft="24sp"
+                android:text="Reference Relation"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+           .
+            <TextView
+                android:id="@+id/EMI"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8sp"
+                android:text="EMIs"
+                android:textColor="@color/black"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+            <!--schedule-->
+            <TextView
+                android:id="@+id/emiSchedule"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/EMI"
+                android:paddingLeft="24sp"
+                android:text="EMI Schedule"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+            <!-- amount-->
+            <TextView
+                android:id="@+id/emiAmount"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/emiSchedule"
+                android:paddingLeft="24sp"
+                android:text="Emi Amount"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+
+            <!--status-->
+
+            <TextView
+                android:id="@+id/emiStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/emiAmount"
+                android:paddingLeft="24sp"
+                android:text="EMI Status"
+                android:textColor="@color/black"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

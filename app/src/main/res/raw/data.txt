@@ -1,0 +1,167 @@
+{
+  "status": true,
+  "code": 200,
+  "message": "Application details fetched",
+  "meta": {
+    "apiVersion": "v2.3.1",
+    "requestId": "REQ_980023445",
+    "timestamp": "2025-02-15T10:35:50Z"
+  },
+  "data": {
+    "applicationId": "APP_2892347561",
+    "memberDetails": {
+      "memberId": "MID_778899",
+      "fullName": "Ankit Verma",
+      "type": "Individual",
+      "dob": "1991-12-05",
+      "mobile": "9876500132",
+      "email": "ankit.v@gmail.com",
+      "maritalStatus": "Married",
+      "gender": "Male",
+      "kyc": {
+        "aadhaar": {
+          "number": "XXXX XXXX 2345",
+          "verified": true,
+          "imageFront": "https://ibb.co/G45tHNrf",
+          "imageBack": "https://ibb.co/G45tHNrf"
+        },
+        "pan": {
+          "number": "ABCDE1234F",
+          "verified": true,
+          "image": "https://ibb.co/G45tHNrf"
+        }
+      },
+      "addresses": [
+        {
+          "type": "Current",
+          "line1": "B-508, Nimbus Tower",
+          "line2": "Techzone 4",
+          "city": "Greater Noida",
+          "state": "U.P",
+          "pincode": "201310",
+          "coordinates": {
+            "lat": 28.458222,
+            "lng": 77.512334,
+            "updatedAt": "2025-02-10 15:20:11"
+          },
+          "proofImage": "https://ibb.co/G45tHNrf"
+        },
+        {
+          "type": "Permanent",
+          "line1": "42A, Rajpur Road",
+          "line2": "Civil Lines",
+          "city": "Dehradun",
+          "state": "Uttarakhand",
+          "pincode": "248001",
+          "coordinates": null,
+          "proofImage": null
+        }
+      ]
+    },
+    "vehicle": {
+      "type": "Two Wheeler",
+      "make": "Hero",
+      "model": "Splendor Plus",
+      "registrationNumber": "UK07DC8831",
+      "registrationDate": "2023-06-20",
+      "inspection": {
+        "status": "Pending",
+        "images": [
+          {
+            "title": "Front View",
+            "fileUrl": "https://ibb.co/G45tHNrf",
+            "latitude": 28.522233,
+            "longitude": 77.234455,
+            "capturedAt": "2025-02-15 10:30:10"
+          },
+          {
+            "title": "Rear View",
+            "fileUrl": "https://ibb.co/G45tHNrf",
+            "latitude": 28.522245,
+            "longitude": 77.234465,
+            "capturedAt": "2025-02-15 10:31:05"
+          }
+        ]
+      }
+    },
+    "loan": {
+      "loanId": "LNX900234",
+      "product": "Retail Bike Loan",
+      "amountRequested": 87500.00,
+      "amountApproved": null,
+      "interestRate": 15.5,
+      "tenure": 18,
+      "status": "UnderReview",
+      "submittedAt": "2025-02-11 13:14:50",
+      "coApplicants": [
+        {
+          "id": "CO_901",
+          "name": "Priya Verma",
+          "relationship": "Spouse",
+          "dob": "1995-10-15",
+          "mobile": "9001200156",
+          "occupation": "Teacher",
+          "incomeMonthly": 25000,
+          "kycStatus": false
+        }
+      ],
+      "guarantors": [
+        {
+          "id": "GU_101",
+          "name": "Rajesh Verma",
+          "relationship": "Father",
+          "verified": true,
+          "checkStatus": "Completed"
+        }
+      ],
+      "referenceContacts": [
+        {
+          "name": "Sahil",
+          "mobile": "9988776655",
+          "relation": "Friend"
+        },
+        {
+          "name": "Amit",
+          "mobile": "8899776655",
+          "relation": "Colleague"
+        }
+      ],
+      "emis": [
+        {
+          "schedule": "2025-03-10",
+          "amount": 5320.50,
+          "status": "Upcoming"
+        }
+      ]
+    },
+    "documents": [
+      {
+        "docType": "Bank Statement",
+        "fileUrl": "https://ibb.co/G45tHNrf",
+        "uploadedAt": "2025-02-12 11:45:20"
+      },
+      {
+        "docType": "Salary Slip",
+        "fileUrl": "https://ibb.co/G45tHNrf",
+        "uploadedAt": "2025-02-12 11:50:20"
+      }
+    ],
+    "auditTrail": [
+      {
+        "action": "APP_CREATED",
+        "actor": "Agent",
+        "timestamp": "2025-02-11 13:15:20"
+      },
+      {
+        "action": "KYC_VERIFIED",
+        "actor": "System",
+        "timestamp": "2025-02-15 09:20:21"
+      },
+      {
+        "action": "INSPECTION_INITIATED",
+        "actor": "System",
+        "timestamp": "2025-02-15 10:10:10"
+      }
+    ]
+  }
+}

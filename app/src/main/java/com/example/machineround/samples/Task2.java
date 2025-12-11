@@ -1,4 +1,4 @@
-package com.example.machineround;
+package com.example.machineround.samples;
 
 /*we are going to build a screen using volley, list view and base adapter class.
  * it is conventional code practice which was asked to me by interviewer in vervemobi blr*/
@@ -21,6 +21,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.bumptech.glide.Glide;
+import com.example.machineround.R;
 import com.google.gson.annotations.SerializedName;
 
 import java.util.ArrayList;

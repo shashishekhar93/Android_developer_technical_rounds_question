@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+<!--    name -->
+    <TextView
+        android:id="@+id/refContact"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="8sp"
+        android:text="Reference Contacts"
+        android:textColor="@color/black"
+        android:textSize="12sp"
+        android:textStyle="bold" />
+
+    <!--name-->
+    <TextView
+        android:id="@+id/refName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/refContact"
+        android:paddingLeft="24sp"
+        android:text="Reference Name"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+<!--    mobile-->
+    <TextView
+        android:id="@+id/refMobile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/refName"
+        android:paddingLeft="24sp"
+        android:text="Reference Mobile"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+
+    <!--relation-->
+
+    <TextView
+        android:id="@+id/refRelation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/refMobile"
+        android:paddingLeft="24sp"
+        android:text="Reference Relation"
+        android:textColor="@color/black"
+        android:textSize="12sp" />
+
+</RelativeLayout>
